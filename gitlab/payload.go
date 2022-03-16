@@ -526,12 +526,19 @@ type Author struct {
 // Changes contains all changes associated with a GitLab issue or MR
 type Changes struct {
 	LabelChanges LabelChanges `json:"labels"`
+	State        StateChanges `json:"state"`
 }
 
 // LabelChanges contains changes in labels assocatiated with a GitLab issue or MR
 type LabelChanges struct {
 	Previous []Label `json:"previous"`
 	Current  []Label `json:"current"`
+}
+
+// StateChanges changes in MR state
+type StateChanges struct {
+	Previous string `json:"previous"`
+	Current  string `json:"current"`
 }
 
 // Label contains all of the GitLab label information
